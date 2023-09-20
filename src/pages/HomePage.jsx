@@ -1,5 +1,4 @@
 import React, { Fragment, useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
 
 function HomePage(props) {
   const [currentScene, setCurrentScene] = useState(1);
@@ -23,10 +22,9 @@ function HomePage(props) {
     }
   }, [currentUser]);
 
-  const navigate = useNavigate();
   function UserList({ users = [] }) {
     return (
-      <>
+      <Fragment>
         <h1 className="font-bold text-teal-600 text-2xl text-center my-6">
           List of user profile
         </h1>
@@ -68,7 +66,7 @@ function HomePage(props) {
             </tbody>
           </table>
         </section>
-      </>
+      </Fragment>
     );
   }
 

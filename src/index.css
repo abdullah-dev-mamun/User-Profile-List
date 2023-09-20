@@ -8,4 +8,19 @@
   html[lang="en"] {
     @apply font-sans;
   }
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    border-radius: 100vh;
+    background: transparent;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: grey;
+    border-radius: 100vh;
+    border: 3px solid transparent;
+  }
 }

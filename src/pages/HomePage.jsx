@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 function HomePage(props) {
   const apiUrl = "https://dummyjson.com/users";
@@ -15,39 +15,45 @@ function HomePage(props) {
     getUsers();
   }, []);
 
+  const navigate = useNavigate();
+
   return (
     <>
-      <h1 className="font-bold text-2xl text-center my-6">
+      <h1 className="font-bold text-teal-600 text-2xl text-center my-6">
         List of user profile
       </h1>
-      <section className="w-full max-w-[80%] mx-auto px-4 mb-12">
+      <section className="w-full md:w-4/5  mx-auto mb-12">
         <table className="w-full text-center [&>*:last-child]:border-b">
           <thead>
-            <tr className="border-b border-t p-3 bg-gray-100">
-              <th>User Name</th>
-              <th>User Email</th>
+            <tr className="border-b text-gray-800 border-t text-sm md:text-lg bg-gray-100">
+              <th className="p-3">User Name</th>
+              <th className="p-3">User Email</th>
               <th className="p-3">Profile Picture</th>
             </tr>
           </thead>
-          {users.map((user, index) => {
-            return (
-              <tbody key={index} className="">
-                <tr className="border-b  p-3 cursor-pointer hover:bg-gray-100 transition-all duration-300 ease-in-out">
-                  <td className="text-lg font-bold">
+          <tbody className="text-sm md:text-base">
+            {users.map((user, index) => {
+              return (
+                <tr
+                  onClick={() => navigate("/user-details")}
+                  key={index}
+                  className="border-b cursor-pointer hover:bg-gray-100 transition-all duration-300 ease-in-out"
+                >
+                  <td className="md:text-lg font-bold text-teal-600 p-2">
                     {user.firstName} {user.lastName}
                   </td>
-                  <td className="">{user.email}</td>
+                  <td className="text-blue-700">{user.email}</td>
                   <td className="p-3">
                     <img
-                      className="w-16 h-16 bg-gray-100 rounded-full flex mx-auto text-center items-end self-center"
+                      className="w-10 h-10 md:w-16 md:h-16 bg-gray-100 rounded-full flex mx-auto text-center items-end self-center"
                       src={user.image}
                       alt=""
                     />
                   </td>
                 </tr>
-              </tbody>
-            );
-          })}
+              );
+            })}
+          </tbody>
         </table>
       </section>
     </>

@@ -25,7 +25,7 @@ function HomePage(props) {
       <section className="w-full md:w-4/5  mx-auto mb-12">
         <table className="w-full text-center [&>*:last-child]:border-b">
           <thead>
-            <tr className="border-b text-gray-800 border-t text-sm md:text-lg bg-gray-100">
+            <tr className="border-b text-gray-800 border-t text-sm md:text-lg bg-gray-200">
               <th className="p-3">User Name</th>
               <th className="p-3">User Email</th>
               <th className="p-3">Profile Picture</th>
@@ -37,7 +37,7 @@ function HomePage(props) {
                 <tr
                   onClick={() => navigate("/user-details")}
                   key={index}
-                  className="border-b cursor-pointer hover:bg-gray-100 transition-all duration-300 ease-in-out"
+                  className="border-b cursor-pointer hover:bg-gray-100/80 transition-all duration-300 ease-in-out"
                 >
                   <td className="md:text-lg font-bold text-teal-600 p-2">
                     {user.firstName} {user.lastName}
